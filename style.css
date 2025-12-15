@@ -1,0 +1,264 @@
+/* --- 1. Global Reset and Base Styles --- */
+:root {
+    /* Naruto Themed Colors */
+    --color-dark-main: #1a1a1a;        /* Near-black, deep charcoal */
+    --color-dark-secondary: #2c2c2c;   /* Dark gray for containers */
+    --color-accent-primary: #ff5722;   /* Vibrant orange/red (Rasen-Shuriken / Flame) */
+    --color-accent-secondary: #fcd703; /* Deep yellow/gold (Sage Mode) */
+    --color-text-light: #e0e0e0;       /* Light gray text */
+    --color-text-contrast: #ffffff;    /* White text for titles */
+    --font-primary: 'Roboto Mono', monospace; /* Tech/Code feel */
+    --font-secondary: 'Oswald', sans-serif;   /* Bold titles */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-dark-main);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* BACKGROUND IMAGE - Replace 'naruto-bg.jpg' with your image path */
+    background-image: url('naruto-bg.jpg'); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center top;
+}
+
+/* Container for better readability over the background image */
+.section-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black overlay */
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 87, 34, 0.15); /* Subtle glowing effect */
+}
+
+.section-title {
+    font-family: var(--font-secondary);
+    font-size: 2.5em;
+    color: var(--color-accent-primary);
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid var(--color-accent-secondary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- 2. HEADER/HERO SECTION --- */
+#hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 80px;
+    background-image: none; /* Remove overlay for Hero section */
+    background-color: transparent; 
+}
+
+.main-title {
+    font-family: var(--font-secondary);
+    font-size: 5em;
+    color: var(--color-text-contrast);
+    text-shadow: 4px 4px 0 var(--color-accent-primary);
+    line-height: 1;
+}
+
+.sub-title {
+    font-size: 1.8em;
+    color: var(--color-accent-secondary);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.summary-text {
+    max-width: 700px;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Contact Links - The Shinobi Tools */
+.contact-links a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-right: 20px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.contact-links a:hover {
+    color: var(--color-accent-secondary);
+    text-shadow: 0 0 5px var(--color-accent-secondary);
+}
+
+/* Naruto Konoha Symbol (Replace with your own CSS or Image) */
+.ninja-symbol {
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-accent-primary);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px var(--color-accent-primary), 0 0 30px rgba(255, 87, 34, 0.5);
+}
+
+#konoha-symbol::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-dark-main);
+    transform: translate(-50%, -50%);
+    /* Simple stylized swirl */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+/* --- 3. SKILLS SECTION: The Jutsu Scrolls --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.jutsu-card {
+    background-color: var(--color-dark-secondary);
+    padding: 20px;
+    border-left: 5px solid var(--color-accent-secondary);
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.jutsu-card:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--color-accent-primary);
+}
+
+.jutsu-card h3 {
+    color: var(--color-text-contrast);
+    font-family: var(--font-secondary);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+/* --- 4. EXPERIENCE SECTION: The Mission Log --- */
+.mission-item {
+    background-color: var(--color-dark-secondary);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: 1px solid rgba(252, 215, 3, 0.2);
+}
+
+.mission-title {
+    color: var(--color-accent-secondary);
+    font-family: var(--font-secondary);
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.mission-duration {
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--color-dark-main);
+    padding-bottom: 5px;
+}
+
+.mission-tasks {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.mission-tasks li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+/* Custom bullet point (e.g., Akatsuki Cloud or Shuriken) */
+.mission-tasks li::before {
+    content: '★'; /* Star/Shuriken-like symbol */
+    color: var(--color-accent-primary);
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    line-height: 1.6;
+}
+
+.impact-point {
+    font-weight: 700; /* Highlight key achievements */
+    color: var(--color-text-contrast);
+}
+
+/* --- 5. EDUCATION SECTION --- */
+#education {
+    text-align: center;
+}
+
+.academy-item {
+    background-color: var(--color-dark-secondary);
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.academy-item h3 {
+    color: var(--color-accent-secondary);
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-dark-secondary);
+    color: var(--color-text-light);
+    margin-top: 40px;
+}
+
+/* --- 7. RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 3.5em;
+        text-shadow: 3px 3px 0 var(--color-accent-primary);
+    }
+
+    .sub-title {
+        font-size: 1.5em;
+    }
+
+    .ninja-symbol {
+        margin-top: 30px;
+    }
+
+    .contact-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-links a {
+        margin-right: 0;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+}
